@@ -1,0 +1,36 @@
+body{
+
+    background: url("../assets/images/dotted-heart.png");
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+.row_footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+
+}
+
+.footerIcons{
+
+    width: 30px;
+    height: 30px;
+
+}
+
+
+.main_flex{
+
+    display: flex;
+    justify-content: left;
+    margin-top: 0%;
+    margin-left: 15px;
+
+}
