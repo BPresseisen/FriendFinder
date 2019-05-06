@@ -41,9 +41,6 @@ module.exports = function(app) {
 
   app.post("/api/users", function(req, res) {
 
-    // Empty out the arrays of data
-    // surveyData.length = 0;
-
     // console.log(req.body)
 
     newUserScores = req.body.scores
@@ -62,11 +59,7 @@ module.exports = function(app) {
 
     console.log("The new user total is: " + newUserTotal);
 
-    // console.log(surveyData);
-
     console.log("the survey data length is: " + surveyData.length);
-
-    // console.log(surveyData[1].scores[2])
 
     for(let i=0; i<surveyData.length; i++){
         
@@ -145,61 +138,53 @@ module.exports = function(app) {
         usersArr.push(usersObj);
     }
 
-    // console.log(usersArr)
-
-    //SORT ON total_diff (SEE NOTE BELOW IN PSEUDOCODE lone 116)
+    // Once the usersArr is fully populated, sort ASCENDING on total_diff and which ever usersObj in the usersArr has
+    // the lowest total_diff is the MATCH...
     usersArr.sort(function(a,b){
 
         return a.total_diff-b.total_diff
 
     })
 
-     // Once the usersArr is fully populated, sort ASCENDING on total_diff and which ever usersObj in the usersArr has
-    // the lowest total_diff is the MATCH...
     console.log(usersArr);
 
-    // BEFORE MAKING THIS MATCH APPEAR IN THE MODAL...
-    // MAKE SURE THE total_diff for the NEXT usersObj in the usersArr IS NOT EQUAL...
-    //
-    // IF IT IS CHECK THE NEXT ONE AND SO ON AND SO FORTH until there is certainty as to how many usersObj share 
-    // the equivalent total_diff value., i.e., are in a tie for lowest total_diff
-    //
-    // FOR ALL OF THE usersObj that are tied, compare each of the indexed position values of the questionDiff 
-    // starting with the questionDiff[0] for each tied usersObj...
-    //
-    // FOR EXAMPLE, if two(2) users are tied for lowest toal_diff and the questionDiff[0] is lower for the second of
-    // the two tied usersObj, then that second user is the MATCH...if it's lower for the first userObj, then they are
-    // the match. If they're equivalent, move to questionDiff[1] and repeat until there is a MATCH...
-    // 
-    // If there are no differenes in their scores at all, make the MATCH on the lower-ranked position usersObj in the
-    // usersArr. FOR EXAMPLE, if there is a tie between usersArr[0] and users[1], the usersArr[0] is the MATCH
-    //
-    //
-    // code to step through the questionDiff array on the "tied" users
-    //
-    //
-    /////
-
-    console.log("the users Array length is: " + usersArr.length);
+    console.log("THE users Array length is: " + usersArr.length);
     
-    var tiedUsersArr = usersArr.map(x => x.totalDiff===i)
+    for (let i = 0; i<40; i++){
+
+        console.log("the tiedUsersArr LENGTH is: " + tiedUsersArr.length);
+
+        if(tiedUsersArr.length>=2){
+
+            return tiedUsersArr;
+
+        }else {
+
+            console.log("the i is: " + i);
+            tiedUsersArr = usersArr.map(x => x.total_diff===i)
+
+        }
+        
+    }
         
     if(tiedUsersArr.length>=2){
             
-        console.log("the tied users array is: " + tiedUsersArr)
+        console.log("THE TIED USERS ARRAY is: " + tiedUsersArr)
 
 
         // EVALUATE questionDiff arrays when there are objects in tiedUsersArr
-        // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the 
-        // differences of each quesiton in their respective questionDiff arrays
-        for(let i =0; usersArr.length; i++){
+        for(let i =0; i<tiedUsersArr.length; i++){
 
+            // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the 
+            // differences of each quesiton in their respective questionDiff arrays
 
         }
+
+    // There's only 1 match at the lowest difference
     }else {
 
         matchObj=usersArr[0];
-        console.log(matchObj)
+        console.log("the matchObj is: " + matchObj)
 
     }
     
