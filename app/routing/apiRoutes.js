@@ -13,7 +13,7 @@ var newUserTotal;
 var userTotal;
 var questionDiff=[];
 var tiedUsersArr=[];
-var matchObj={};
+var matchObj;
 
 // ===============================================================================
 // ROUTING
@@ -150,47 +150,64 @@ module.exports = function(app) {
 
     console.log("THE users Array length is: " + usersArr.length);
     
-    for (let i = 0; i<40; i++){
+    // for (let i = 0; i<40; i++){
 
-        console.log("the tiedUsersArr LENGTH is: " + tiedUsersArr.length);
+    //     console.log("the tiedUsersArr LENGTH is: " + tiedUsersArr.length);
 
-        if(tiedUsersArr.length>=2){
+    //     if(tiedUsersArr.length>=2){
 
-            return tiedUsersArr;
+    //         return tiedUsersArr;
 
-        }else {
+    //     }else {
 
-            console.log("the i is: " + i);
-            tiedUsersArr = usersArr.map(x => x.total_diff===i)
+    //         console.log("the i is: " + i);
+    //         tiedUsersArr = usersArr.map(x => x.total_diff===i)
 
-        }
+    //     }
         
-    }
+    // }
         
-    if(tiedUsersArr.length>=2){
+    // if(tiedUsersArr.length>=2){
+        
+    // // IS THERE ANOTHER WAY TO EVALUATE?
+    //     console.log("THE TIED USERS ARRAY is: " + tiedUsersArr)
+
+    //     // EVALUATE questionDiff arrays when there are objects in tiedUsersArr
+    //     // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the
+    //      // differences of each question in their respective questionDiff arrays
+    //     for(let i =0; i<tiedUsersArr.length; i++){
+
             
-        console.log("THE TIED USERS ARRAY is: " + tiedUsersArr)
+    //         // go through each tiedUsersArr object
+    //         // inspect the answer to questionDiff1
+    //         // whichever tiedUsersArr object has the lowest questionDiff1, then that's the MATCH
+    //         // if not follow the loop to the next questionDiff (through questionDiff10 if necc)
+    //         var questionEval = 0;
+
+    //         for(let j = 0; j<10; j++){
 
 
-        // EVALUATE questionDiff arrays when there are objects in tiedUsersArr
-        for(let i =0; i<tiedUsersArr.length; i++){
 
-            // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the 
-            // differences of each quesiton in their respective questionDiff arrays
+    //         }
 
-        }
 
-    // There's only 1 match at the lowest difference
-    }else {
 
-        matchObj=usersArr[0];
+    //     }
+
+    // // There's only 1 match at the lowest difference
+    // }else {
+
+    matchObj=usersArr[0];
+        console.log(usersArr[0].name)
+        console.log(usersArr[0].photo)
         console.log("the matchObj is: " + matchObj)
 
-    }
+    // }
     
     // res.json({ ok: true });
 
-    res.json({ matchObj });
+    // res.json({ matchObj });
+    res.json({ name:usersArr[0].name, photo:usersArr[0].photo });
 
   });
 };
