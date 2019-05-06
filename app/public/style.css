@@ -1,6 +1,7 @@
 body{
 
-    background: url("../assets/images/dotted-heart.png");
+    background: url("../public/dotted-heart.png");
+    /* background: url("../public/images/dotted-heart.png"); */
     -webkit-background-size: cover;
     background-size: cover;
   }

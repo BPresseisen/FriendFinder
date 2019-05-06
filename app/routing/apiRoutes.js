@@ -182,28 +182,24 @@ module.exports = function(app) {
 
     console.log("the users Array length is: " + usersArr.length);
     
-    for(let i =0; usersArr.length; i++){
-
-        var tiedUsersArr = usersArr.map(x => x.totalDiff===i)
+    var tiedUsersArr = usersArr.map(x => x.totalDiff===i)
         
-        if(tiedUsersArr.length>=2){
+    if(tiedUsersArr.length>=2){
             
-            return tiedUsersArr
+        console.log("the tied users array is: " + tiedUsersArr)
+
+
+        // EVALUATE questionDiff arrays when there are objects in tiedUsersArr
+        // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the 
+        // differences of each quesiton in their respective questionDiff arrays
+        for(let i =0; usersArr.length; i++){
+
+
         }
-    }
-
-    console.log("the tied users array is: " + tiedUsersArr)
-
-    // EVALUATE questionDiff arrays when there are objects in tiedUsersArr
-    // there's more than 1 user with the lowest Diff possible so leave the for...loop to evaluate the 
-    // differences of each quesiton in their respective questionDiff arrays
-    if (tiedUsersArr.length >=2){
-
-
-
-    }else{
+    }else {
 
         matchObj=usersArr[0];
+        console.log(matchObj)
 
     }
     
