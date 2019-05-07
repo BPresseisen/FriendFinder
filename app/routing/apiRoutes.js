@@ -41,11 +41,11 @@ module.exports = function(app) {
 
   app.post("/api/users", function(req, res) {
 
-    // console.log(req.body)
+    console.log(req.body)
 
     newUserScores = req.body.scores
     
-    // console.log(newUserScores);
+    console.log(newUserScores);
     for(let i = 0; i<newUserScores.length; i++){
         newUserScoreArr.push(parseInt(newUserScores[i]));
     }
@@ -63,7 +63,7 @@ module.exports = function(app) {
 
     for(let i=0; i<surveyData.length; i++){
         
-        // for(let j = 0; i<surveyData[i].scores.length; j++){
+        // for(let j = 0; j<surveyData[i].scores.length; j++){
         //     userScoreArr.push(parseInt(surveyData[i].scores[j]));
         // }
 
