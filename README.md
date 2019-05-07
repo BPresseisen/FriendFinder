@@ -1,6 +1,6 @@
 # findYour1
   
-This is a 10 question survey to demonstrate the interoperabiltiy between node.JS and express servers. The survey is geared towards users finding their one (1). The person for them. All of the data in the survey is test data. 
+This is a 10 question survey to demonstrate the interoperability between node.JS and express servers. The survey is geared towards users finding their one (1). The person for them. All of the data in the survey is test data. 
   
 It was important to build, test, and deploy a Minimum Viable Product (MVP) and that is what is released in this first version.
 
